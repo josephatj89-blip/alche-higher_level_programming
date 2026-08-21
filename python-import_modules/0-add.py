@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Imports add from add_0 and prints the sum of a and b"""
+"""Task 1: prints the addition of a and b"""
 from add_0 import add
 
 if __name__ == "__main__":
