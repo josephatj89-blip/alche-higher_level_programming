@@ -67,6 +67,8 @@ Test integer_validator with a list:
 Test integer_validator with a boolean:
 
     >>> bg.integer_validator("age", True)
+    Traceback (most recent call last):
+    TypeError: age must be an integer
 
 Test integer_validator with a set:
 
