@@ -18,15 +18,61 @@ Test that area() raises an Exception:
     Traceback (most recent call last):
     Exception: area() is not implemented
 
+Test integer_validator with no arguments:
+
+    >>> bg.integer_validator()
+    Traceback (most recent call last):
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Test integer_validator with only name argument:
+
+    >>> bg.integer_validator("age")
+    Traceback (most recent call last):
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+
 Test integer_validator with a valid positive integer:
 
-    >>> bg.integer_validator("width", 5)
+    >>> bg.integer_validator("age", 1)
 
-Test integer_validator with a string instead of an integer:
+Test integer_validator with zero:
 
-    >>> bg.integer_validator("width", "hello")
+    >>> bg.integer_validator("age", 0)
     Traceback (most recent call last):
-    TypeError: width must be an integer
+    ValueError: age must be greater than 0
+
+Test integer_validator with a negative integer:
+
+    >>> bg.integer_validator("age", -4)
+    Traceback (most recent call last):
+    ValueError: age must be greater than 0
+
+Test integer_validator with a string:
+
+    >>> bg.integer_validator("age", "4")
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+Test integer_validator with a tuple:
+
+    >>> bg.integer_validator("age", (4,))
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+Test integer_validator with a list:
+
+    >>> bg.integer_validator("age", [3])
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+Test integer_validator with a boolean:
+
+    >>> bg.integer_validator("age", True)
+
+Test integer_validator with a set:
+
+    >>> bg.integer_validator("age", {3, 4})
+    Traceback (most recent call last):
+    TypeError: age must be an integer
 
 Test integer_validator with a float:
 
@@ -39,24 +85,6 @@ Test integer_validator with None:
     >>> bg.integer_validator("width", None)
     Traceback (most recent call last):
     TypeError: width must be an integer
-
-Test integer_validator with a boolean:
-
-    >>> bg.integer_validator("width", True)
-    Traceback (most recent call last):
-    TypeError: width must be an integer
-
-Test integer_validator with zero:
-
-    >>> bg.integer_validator("width", 0)
-    Traceback (most recent call last):
-    ValueError: width must be greater than 0
-
-Test integer_validator with a negative integer:
-
-    >>> bg.integer_validator("width", -5)
-    Traceback (most recent call last):
-    ValueError: width must be greater than 0
 
 Test integer_validator with a large valid integer:
 
