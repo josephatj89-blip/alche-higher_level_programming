@@ -1,0 +1,44 @@
+The ``1-my_list`` module
+=========================
+
+Using MyList
+------------
+
+Import MyList from the module:
+
+    >>> MyList = __import__('1-my_list').MyList
+
+Create an instance and add elements:
+
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
+
+Print the list in its original order:
+
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+
+Print the list sorted:
+
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+
+Confirm the original list is unchanged after print_sorted:
+
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+
+Test with an empty list:
+
+    >>> empty_list = MyList()
+    >>> empty_list.print_sorted()
+    []
+
+Test that MyList is still a list:
+
+    >>> isinstance(my_list, list)
+    True
