@@ -42,3 +42,13 @@ Test that MyList is still a list:
 
     >>> isinstance(my_list, list)
     True
+Test with negative numbers, unsorted:
+
+    >>> neg_list = MyList()
+    >>> neg_list.append(3)
+    >>> neg_list.append(-1)
+    >>> neg_list.append(0)
+    >>> neg_list.append(-5)
+    >>> neg_list.append(2)
+    >>> neg_list.print_sorted()
+    [-5, -1, 0, 2, 3]
