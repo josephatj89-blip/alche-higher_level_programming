@@ -1,19 +1,19 @@
 #!/usr/bin/python3
-Rectangle = __import__('7-base_geometry').Rectangle
+"""Module that defines a Rectangle class, inheriting from BaseGeometry."""
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-r1 = Rectangle(3, 5)
-print(r1)
-try:
-    print(r1.__width)
-except AttributeError as e:
-    print("AttributeError:", e)
 
-try:
-    r2 = Rectangle(3, -5)
-except Exception as e:
-    print(type(e).__name__, ":", e)
+class Rectangle(BaseGeometry):
+    """Represents a rectangle, inheriting from BaseGeometry."""
 
-try:
-    r3 = Rectangle("3", 5)
-except Exception as e:
-    print(type(e).__name__, ":", e)
+    def __init__(self, width, height):
+        """Initializes a new Rectangle.
+
+        Args:
+            width (int): The width of the rectangle.
+            height (int): The height of the rectangle.
+        """
+        self.integer_validator("width", width)
+        self.__width = width
+        self.integer_validator("height", height)
+        self.__height = height
