@@ -1,0 +1,48 @@
+The ``5-text_indentation`` module
+===================================
+
+Import the function:
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Prints 2 new lines after '.', '?', and ':':
+
+    >>> text_indentation("Hello. How are you? I'm fine: thanks.")
+    Hello.
+    <BLANKLINE>
+    How are you?
+    <BLANKLINE>
+    I'm fine:
+    <BLANKLINE>
+    thanks.
+    <BLANKLINE>
+
+Text with no punctuation at all prints as a single line:
+
+    >>> text_indentation("Just some plain text")
+    Just some plain text
+
+Trailing text after the last punctuation mark is still printed:
+
+    >>> text_indentation("End with a period. But some text after")
+    End with a period.
+    <BLANKLINE>
+    But some text after
+
+An empty string prints nothing:
+
+    >>> text_indentation("")
+
+text must be a string:
+
+    >>> text_indentation(89)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+    >>> text_indentation([1, 2, 3])
+    Traceback (most recent call last):
+    TypeError: text must be a string
