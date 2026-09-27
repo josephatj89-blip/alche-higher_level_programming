@@ -1,0 +1,52 @@
+The ``2-matrix_divided`` module
+=================================
+
+Import the function:
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Regular division, rounded to 2 decimal places:
+
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+    >>> matrix_divided(matrix, 3)
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+The original matrix is left unchanged:
+
+    >>> matrix
+    [[1, 2, 3], [4, 5, 6]]
+
+Works with floats and negative numbers too:
+
+    >>> matrix_divided([[1.5, -2.5], [3, -4]], 2)
+    [[0.75, -1.25], [1.5, -2.0]]
+
+matrix must be a list of lists:
+
+    >>> matrix_divided("not a matrix", 2)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Every element must be an int or a float:
+
+    >>> matrix_divided([[1, 2], [3, "x"]], 2)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Every row must be the same size:
+
+    >>> matrix_divided([[1, 2], [3, 4, 5]], 2)
+    Traceback (most recent call last):
+    TypeError: Each row of the matrix must have the same size
+
+div must be a number:
+
+    >>> matrix_divided([[1, 2], [3, 4]], "two")
+    Traceback (most recent call last):
+    TypeError: div must be a number
+
+div can't be 0:
+
+    >>> matrix_divided([[1, 2], [3, 4]], 0)
+    Traceback (most recent call last):
+    ZeroDivisionError: division by zero
