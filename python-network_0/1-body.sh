@@ -1,8 +1,3 @@
 #!/bin/bash
-response=$(curl -s -w "\n%{http_code}" "$1")
-status=$(echo "$response" | tail -n1)
-body=$(echo "$response" | sed '$d')
-
-if [ "$status" -eq 200 ]; then
-  echo "$body"
-fi
+# Sends a GET request and prints the body only if the status code is 200
+[ "$(curl -s -o /dev/null -w '%{http_code}' "$1")" = "200" ] && curl -s "$1"
